@@ -1,0 +1,30 @@
+name: Environment Variables and Matrix Demo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+    env:
+      ENV_VAR_1: "Value 1"
+      ENV_VAR_2: "Value 2"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Display Environment Variables
+        run: |
+          echo "Environment variable 1: $ENV_VAR_1"
+          echo "Environment variable 2: $ENV_VAR_2"
+          echo "Matrix node version: ${{ matrix.node-version }}"

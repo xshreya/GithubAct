@@ -1,0 +1,21 @@
+name: Run Multiline Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Run Multiline Script
+        run: |
+          echo "This is a multiline script"
+          echo "It can contain multiple commands"
+          echo "For example, you can run any bash commands here"
+          echo "You can also include variables or conditionals"
+          # Add your multiline script here

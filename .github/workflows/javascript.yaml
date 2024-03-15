@@ -1,0 +1,28 @@
+
+name: Run JavaScript Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Run JavaScript Script
+        run: |
+          node -e '
+            console.log("This is a multiline JavaScript script");
+            console.log("You can write multiple lines of JavaScript code here");
+            console.log("For example, you can perform computations, manipulate data, etc.");
+            // Add your multiline JavaScript script here
+          '
