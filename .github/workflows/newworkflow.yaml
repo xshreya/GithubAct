@@ -6,14 +6,15 @@ on:
       - main
 
 jobs:
-  runs-on: ubuntu-latest
-  
-  steps: 
-    - name: Checkout repository
-      uses: actions/checkout@v2
+  test: 
+    runs-on: ubuntu-latest
 
-    - name: print
-      run: |
-        echo "hello"
-      
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: print
+        run: |
+          echo "hello"
+        
 
